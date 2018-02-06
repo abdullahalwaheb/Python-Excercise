@@ -20,27 +20,37 @@
 
 
 #---------------------------Tip Calculator----------------------------
-# bill = 0
-# tip = 0.0
-# total = 0
-# rate = ""
 
-# def calcTotal():
-#   bill = float(input("What is your total?\n$"))
-#   rate = input("How would you rate us? Good,Fair or Crap?\n")
-#   if (rate == "good" or rate == "Good"):
-#     tip = 0.20
-#   elif (rate == "fair" or rate == "Fair"):
-#     tip = 0.10
-#   elif (rate == "crap" or rate == "Crap"):
-#     tip = 0.05
-#   else:
-#     print("Invalid rating option")
+bill = 0
+tip = 0.0
+total = 0
+rate = ""
 
-#   total = bill + bill * tip
-#   print("Your total is: $",total)
+def calcTotal():
+  while True:
+    try:
+      bill = float(input("What is your total?\n$"))
+      rate = input("How would you rate us? Good,Fair or Crap?\n")
+      if (rate == "good" or rate == "Good"):
+        tip = 0.20
+      elif (rate == "fair" or rate == "Fair"):
+        tip = 0.10
+      elif (rate == "crap" or rate == "Crap"):
+        tip = 0.05
+      else:
+        print("invalid value")
 
-# calcTotal()
+      total = bill + bill * tip
+      print("Your total is: $",total)
+      
+    except ValueError:
+      print("Your bill has to be a number")
+    else:
+      return bill
+      break
+
+
+calcTotal()
 
 
 #--------------------------Loop Practice------------------------------
