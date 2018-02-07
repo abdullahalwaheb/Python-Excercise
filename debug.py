@@ -1,4 +1,4 @@
-def test ():
+def test():
   name = "Narf"
   print(name[10])
   print("done")
