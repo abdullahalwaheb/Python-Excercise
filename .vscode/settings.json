@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/abdullah/.virtualenvs/abdullah-GQEbUrHV/bin/python"
+    "python.pythonPath": "/Users/abdullah/.virtualenvs/abdullah-GQEbUrHV/bin/python",
+    "python.linting.enabled": false
 }
