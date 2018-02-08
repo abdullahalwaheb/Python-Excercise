@@ -1,4 +1,3 @@
-
 # ------ completed/submitted ------
 
 # #declaring variables
