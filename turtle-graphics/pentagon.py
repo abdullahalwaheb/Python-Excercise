@@ -1,7 +1,7 @@
-import turtle
+from turtle import *
 
-turtle.pendown()
+pendown()
 #5 represents the number of shape's sides
 for i in range(5):
-    turtle.forward(90)
-    turtle.right(360/5)
+    forward(90)
+    right(360/5)

@@ -1,7 +1,7 @@
-import turtle
+from turtle import *
 
-turtle.pendown()
+pendown()
 #6 represents the number of shape's sides
 for i in range(6):
-    turtle.forward(90)
-    turtle.right(360/6)
+    forward(90)
+    right(360/6)
