@@ -33,7 +33,7 @@ def readFile():
     fileName = input("Please enter the file name: ")
     try:
         fileHandler = open(fileName, "r")
-        content = fileHandler.read()
+        content = filteHandler.read()
         #calling the letters counting method
         letter_histogram(content)
         #calling the words counting method
