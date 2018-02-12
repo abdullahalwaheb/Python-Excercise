@@ -1,17 +1,9 @@
 from turtle import *
 
 #hideturtle()
-tracer(False)
+#tracer(False)
 
-def upTri():
-    right(60)
-    forward(60)
-    right(120)
-    forward(60)
-    right(120)
-    forward(60)
-
-def downTri():
+def drawTri():
     right(60)
     forward(60)
     right(120)
@@ -23,26 +15,26 @@ def drawGreenQt():
     #draw
     begin_fill()
     color("green")
-    upTri()
-    downTri()
+    drawTri()
+    drawTri()
     #set pos
     penup()
     right(120)
     forward(60)
     pendown()
     #draw
-    upTri()
+    drawTri()
     end_fill()
     begin_fill()
     color("darkgreen")
-    downTri()
+    drawTri()
     #set pos
     penup()
     right(120)
     forward(60)
     pendown()
     #draw
-    upTri()
+    drawTri()
     end_fill()
     #set pos
     right(60)
@@ -51,33 +43,33 @@ def drawGreenQt():
     #draw
     begin_fill()
     color("green")
-    downTri()
+    drawTri()
     end_fill()
 
 def drawBlueQt():
     #draw
     begin_fill()
     color("blue")
-    downTri()
-    upTri()
+    drawTri()
+    drawTri()
     #set pos
     penup()
     right(120)
     forward(60)
     pendown()
     #draw
-    downTri()
+    drawTri()
     end_fill()
     begin_fill()
     color("darkblue")
-    upTri()
+    drawTri()
     #set pos
     penup()
     right(120)
     forward(60)
     pendown()
     #draw
-    downTri()
+    drawTri()
     end_fill()
     #set pos
     right(60)
@@ -86,7 +78,7 @@ def drawBlueQt():
     #draw
     begin_fill()
     color("blue")
-    upTri()
+    drawTri()
     end_fill()
 
 def drawBlueGreenJoint():
@@ -138,7 +130,8 @@ penup()
 setx(-50)
 sety(-50)
 pendown()
-drawBlueQt()
+
+#drawBlueQt()
 
 
 done()
