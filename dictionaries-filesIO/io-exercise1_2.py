@@ -18,5 +18,5 @@ def writeFile():
     fileHandler.close()
     print(content)
     
-#readFile()
-writeFile()
+readFile()
+#writeFile()
