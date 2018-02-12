@@ -1,22 +1,37 @@
 from turtle import *
+import random
 
-def starDraw():
-    pendown()
-    begin_fill()
-    for side in range(5):
-        left(144)
-        forward(50)
-    end_fill()
-    penup()
+#skip animation
+tracer(0,0)
 
-#this will draw a light grey star on a dark blue background
+#set the star and the background color
 color("WhiteSmoke")
 bgcolor("MidnightBlue")
 
-#use the function to draw stars!
-starDraw()
-forward(100)
-starDraw()
-left(120)
-forward(150)
-starDraw()
+#allows changing the initial pos without drawing
+penup()
+
+#change position randomly
+def changePos():
+    randomNum = random.randint(-290,290)
+    setx(randomNum)
+    randomNum = random.randint(-290,290)
+    sety(randomNum)
+
+#draw star
+def starDraw():
+    for side in range(5):
+        pendown()
+        left(144)
+        forward(6)
+        penup()
+
+#draw star at random coordinates continuously. 
+#60 stars, change it to more/less
+for i in range(1,60):
+    changePos()
+    starDraw()
+
+#freeze the screen at the end
+done()
+
