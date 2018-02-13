@@ -1,10 +1,11 @@
-import json
 
-data = {'name': 'Paul'}
+class Person:
+  def __init__(self, name):
+    self.name = name
+    print("hello", name)
 
-with open('data.json', 'w') as fh:
-  json.dump(data, fh)
+def main():
+  p = Person("Mark")
 
-with open('data.json', 'r') as fh:
-  data = json.load(fh)
-  print(data)
+if __name__ == "__main__":
+  main()
