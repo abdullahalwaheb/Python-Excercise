@@ -1,14 +1,27 @@
-# Write program that takes a JSON file name as input and plots the X,Y data. Exchange JSON data with others to test your program more thoroughly.
+import json
+from matplotlib import pyplot
 
-# Example Format:
+dataList = []
 
-# {
-#   "data": [
-#     [1, 1],
-#     [2, 2],
-#     [3, 3],
-#     [4, 4]
-#   ]
-# }
+def readData():
+    fileHandler = open('data.json', 'r')
+    data = json.load(fileHandler)
+    print(data)
+    for i in data:
+        dataList.append(data)
+    fileHandler.close()
+    print(dataList)
+
+def run():
+    ys = []
+    for x in dataList:
+        ys.append(x)
+    pyplot.plot(dataList, ys)
+    pyplot.show()
+
+if __name__ == "__main__":
+    readData()
+    #run()
+
 
 
