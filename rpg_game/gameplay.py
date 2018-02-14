@@ -2,7 +2,7 @@
 import sys
 sys.path.append('/Users/abdullah/Desktop/DigitalCrafts/Python/rpg_game/characters')
 from character_class import *
-#add two characters to the list
+#add two characters to the list to battle one another
 chList = []
 
 def characterSelect():
@@ -77,7 +77,6 @@ def play():
             if (chList[1].health <= 0):
                 print(chList[1].name, "is ☠️")     
         elif (raw_input == 2):
-            #chList[1].attack(chList[0])
             pass
         elif (raw_input == 3):
             print("\U0001F4A8")
@@ -85,7 +84,7 @@ def play():
         else:
             print("Invalid input {}".format(raw_input))
         #evil attacks you
-        if chList[1].health > 0:
+        if (chList[1].health > 0):
             chList[1].attack(chList[0])
             if (chList[0].health <= 0):
                 print(chList[0].name, "is ☠️")

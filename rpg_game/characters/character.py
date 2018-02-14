@@ -1,3 +1,5 @@
+import random
+
 class Character:
 
     #constructor
@@ -13,6 +15,9 @@ class Character:
 
     #attack method
     def attack(self, enemy):
+        enemy.health -= self.power
+        print(self.name, "🗡️ ", enemy.name, "and does {} damage".format(self.power))
+
         enemy.health -= self.power
         print(self.name, "🗡️ ", enemy.name, "and does {} damage".format(self.power))
 

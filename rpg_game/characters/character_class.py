@@ -1,4 +1,5 @@
 from character import Character
+import random
 
 class Hero(Character):
     #constructor
@@ -7,6 +8,7 @@ class Hero(Character):
         self.health = health
         self.power = power
         self.specialAttribute = specialAttribute
+
         
 class Archer(Character):
     #constructor
