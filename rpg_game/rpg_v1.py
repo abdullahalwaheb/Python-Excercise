@@ -10,9 +10,9 @@ class Character:
     def attack(self,enemy):
         enemy.health -= self.power
         if (self.power == 5):
-            print("You attack goblin and do {} damage".format(self.power))
+            print("You 🗡️ goblin and do {} damage".format(self.power))
         elif (self.power == 2):
-            print("Goblin smacks you on the head with its mace and does {} damage".format(self.power))
+            print("Goblin 🗡️ and does {} damage".format(self.power))
 
     def print_status(self):
         if (self.power == 5):

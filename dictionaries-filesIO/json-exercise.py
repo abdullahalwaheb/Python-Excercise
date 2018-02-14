@@ -23,11 +23,3 @@ if __name__ == "__main__":
     readData()
     #run()
 
-
-age
-grade
-email
-
-student = Student()
-student.
-
