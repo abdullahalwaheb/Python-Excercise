@@ -9,10 +9,18 @@ class Character:
 
     def attack(self,enemy):
         enemy.health -= self.power
-        print(self,"do {} damage to the".format(self.power),enemy)
+        if (self.power == 5):
+            print("You attack goblin and do {} damage".format(self.power))
+        elif (self.power == 2):
+            print("Goblin smacks you on the head with its mace and does {} damage".format(self.power))
+        elif (self.power == 1):
+            print("Zombie bites you and do {} damage (killing you slowly)".format(self.power))
 
     def print_status(self):
-        print(self.__str__(),"has {} health and {} power.".format(self.health, self.power))
+        if (self.power == 5):
+            print("You have {} health and {} power".format(self.health,self.power))
+        elif (self.power == 2):
+            print("Goblin has {} health and {} power".format(self.health,self.power))
 
 class Hero(Character):
     def __init__(self, health, power):
@@ -24,9 +32,14 @@ class Goblin(Character):
         self.health = health
         self.power = power
 
+class Zombie(Character):
+    def __init__(self, power):
+        self.power = power
+
 def main():
     hero = Hero(10,5)
     goblin = Goblin(6,2)
+    zombie = Zombie(1)
 
     while goblin.alive() and hero.alive():
         hero.print_status()
