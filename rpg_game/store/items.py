@@ -12,8 +12,9 @@ def listItems():
     print("")
     print("     Blacksmith Store")
     print("===========================")
-    for key,value in items.items():
+    for key,value in itemsDict.items():
         print("{}. {} for {} coins".format(number, key, value))
         number+= 1
     print("")
+    print("Buy an item from the list or press any key to pass")
     print(">>")

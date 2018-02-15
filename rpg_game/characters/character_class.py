@@ -1,4 +1,4 @@
-from character import Character
+from character_action import Character
 
 class Hero(Character):
     #constructor

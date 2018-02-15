@@ -1,5 +1,7 @@
+import sys
+sys.path.append('/Users/abdullah/Desktop/DigitalCrafts/Python/rpg_game/store')
 import random
-from store import items
+from items import *
 
 class Character:
     #constructor
@@ -14,7 +16,7 @@ class Character:
 
     #status print method
     def printStatus(self):
-        print(self.name, "has {} health and {} power".format(self.health, self.power))
+        print(self.name, "has {} health, {} power and {} coins".format(self.health, self.power, self.coins))
 
     #attack method
     def attack(self, enemy):
