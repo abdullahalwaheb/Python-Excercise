@@ -5,10 +5,11 @@ from items import *
 
 class Character:
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -20,7 +21,7 @@ class Character:
 
     #attack method
     def attack(self, enemy):
-        enemy.health -= self.power
+        enemy.health -= (self.power-enemy.defence)
         print(self.name, "🗡️ ", enemy.name, "and does {} damage".format(self.power))
 
     #alive or dead boolean method
@@ -47,28 +48,65 @@ class Character:
         else:
             pass
 
-    #items/coins dropped after the battle won
-    def dropItems(self, enemy):
+    #coins dropped after the battle won
+    def dropCoins(self, enemy):
         self.coins += enemy.coins
         print(self.name,"earned {} coins".format(enemy.coins))
 
     #buy items after battle from the store
     def buyItems(self):
-        raw_input = int(input())
-        if (raw_input == 1 and self.coins >= itemsDict["Armor"]):
-            self.inventory.append("Armor")
-            self.coins -= itemsDict["Armor"]
-        elif (raw_input == 2 and self.coins >= itemsDict["SuperTonic"]):
-            self.inventory.append("SuperTonic")
-            self.coins -= itemsDict["SuperTonic"]
-        elif (raw_input == 3 and self.coins >= itemsDict["Shuriken"]):
-            self.inventory.append("Shuriken")
-            self.coins -= itemsDict["Shuriken"]
-        elif (raw_input == 4 and self.coins >= itemsDict["Evade"]):
-            self.inventory.append("Evade")
-            self.coins -= itemsDict["Evade"]
-        elif (raw_input == 5 and self.coins >= itemsDict["Sacrifice"]):
-            self.inventory.append("Sacrifice")
-            self.coins -= itemsDict["Sacrifice"]
-        else:
-            pass
+        while True:
+            raw_input = input()
+            if (raw_input == "1" and self.coins >= itemsDict["Armor"]):
+                self.inventory.append("Armor")
+                self.coins -= itemsDict["Armor"]
+                break
+            elif (raw_input == "2" and self.coins >= itemsDict["SuperTonic"]):
+                self.inventory.append("SuperTonic")
+                self.coins -= itemsDict["SuperTonic"]
+                break
+            elif (raw_input == "3" and self.coins >= itemsDict["Shuriken"]):
+                self.inventory.append("Shuriken")
+                self.coins -= itemsDict["Shuriken"]
+                break
+            elif (raw_input == "4" and self.coins >= itemsDict["Evade"]):
+                self.inventory.append("Evade")
+                self.coins -= itemsDict["Evade"]
+                break
+            elif (raw_input == "5" and self.coins >= itemsDict["Sacrifice"]):
+                self.inventory.append("Sacrifice")
+                self.coins -= itemsDict["Sacrifice"]
+                break
+            elif (raw_input == "6"):
+                break
+            else:
+                print("Invalid choice, choose an item again")
+        
+    #use item and update character status
+    def useItemVsEnemy(self, enemy, itemUsed):
+        while True:
+            if (itemUsed == "Armor" or itemUsed == "armor"):
+                self.inventory.remove("Armor")
+                self.defence += 1
+                break
+            elif (itemUsed == "SuperTonic" or itemUsed == "supertonic"):
+                self.inventory.remove("SuperTonic")
+                self.health += 2
+                break
+            elif (itemUsed == "Shuriken" or itemUsed == "shuriken"):
+                self.inventory.remove("Shuriken")
+                self.power += 5
+                break
+            elif (itemUsed == "Evade" or itemUsed == "evade"):
+                self.inventory.remove("Evade")
+                self.health += enemy.power
+                break
+            elif (itemUsed == "Sacrifice" or itemUsed == "sacrificed"):
+                self.inventory.remove("Sacrifice")
+                self.health = 0
+                break
+            else:
+                print("{} is unavailable".format(itemUsed))
+                print("{} lost turn".format(self.name))
+                return False
+

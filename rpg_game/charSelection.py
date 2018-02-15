@@ -20,16 +20,16 @@ def characterSelect():
         print(">>", end=" ")
         raw_input = input()
         if (raw_input == "1"):
-            hero = Hero("Hero",10,5,0,None)
+            hero = Hero("Hero",10,5,0,0,None)
             chList.append(hero)
         elif (raw_input == "2"):
-            archer = Archer("Archer",8,4,0,None)
+            archer = Archer("Archer",8,5,0,0,None)
             chList.append(archer)
         elif (raw_input == "3"):
-            medic = Medic("Medic",9,3,0,None)
+            medic = Medic("Medic",9,3,0,0,None)
             chList.append(medic)
         elif (raw_input == "4"):
-            shadow = Shadow("Shadow",1,7,0,None)
+            shadow = Shadow("Shadow",1,7,0,0,None)
             chList.append(shadow)
         elif (raw_input == "5"):
             print("Goodbye!")
@@ -49,13 +49,13 @@ def enemySelection():
         print(">>", end=" ")
         raw_input = input()
         if (raw_input == "1"):
-            goblin = Goblin("Goblin",7,2,5,None)
+            goblin = Goblin("Goblin",7,2,0,5,None)
             chList.append(goblin)
         elif (raw_input == "2"):
-            d_knight = Dark_Night("Dark Knight",9,2,6,None)
+            d_knight = Dark_Night("Dark Knight",9,2,0,6,None)
             chList.append(d_knight)
         elif (raw_input == "3"):
-            zombie = Zombie("Zombie",99999999,1,0,None)
+            zombie = Zombie("Zombie",99999999,1,0,0,None)
             chList.append(zombie)
         else:
             print("Invalid selection {}".format(raw_input))

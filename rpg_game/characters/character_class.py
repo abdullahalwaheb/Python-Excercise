@@ -2,10 +2,11 @@ from character_action import Character
 
 class Hero(Character):
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -13,10 +14,11 @@ class Hero(Character):
 
 class Archer(Character):
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -24,10 +26,11 @@ class Archer(Character):
 
 class Medic(Character):
     #constructor
-     def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -35,10 +38,11 @@ class Medic(Character):
 
 class Shadow(Character):
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -46,10 +50,11 @@ class Shadow(Character):
 
 class Zombie(Character):
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -57,10 +62,11 @@ class Zombie(Character):
 
 class Goblin(Character):
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
@@ -68,10 +74,11 @@ class Goblin(Character):
 
 class Dark_Night(Character):
     #constructor
-    def __init__(self, name, health, power, coins, inventory=None):
+    def __init__(self, name, health, power, defence, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.defence = defence
         self.coins = coins
         if (inventory is None):
             inventory=[]
