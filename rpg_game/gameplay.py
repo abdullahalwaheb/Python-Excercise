@@ -2,9 +2,10 @@
 import sys
 sys.path.append('/Users/abdullah/Desktop/DigitalCrafts/Python/rpg_game/characters')
 from character_class import *
+from store import items
 #add two characters to the list to battle one another
 chList = []
-
+#select your character
 def characterSelect():
     print("")
     print("Select your character")
@@ -17,23 +18,23 @@ def characterSelect():
     print(">>", end=" ")
     raw_input = int(input())
     if (raw_input == 1):
-        hero = Hero("Hero",10,5)
+        hero = Hero("Hero",10,5,0,None)
         chList.append(hero)
     elif (raw_input == 2):
-        archer = Archer("Archer",8,4)
+        archer = Archer("Archer",8,4,0,None)
         chList.append(archer)
     elif (raw_input == 3):
-        medic = Medic("Medic",9,3)
+        medic = Medic("Medic",9,3,0,None)
         chList.append(medic)
     elif (raw_input == 4):
-        shadow = Shadow("Shadow",1,7)
+        shadow = Shadow("Shadow",1,7,0,None)
         chList.append(shadow)
     elif (raw_input == 5):
         print("Goodbye!")
         quit()
     else:
         print("Invalid selection {}".format(raw_input))
-
+#select the enemy
 def enemySelection():
     print("")
     print("Select your enemy")
@@ -44,21 +45,21 @@ def enemySelection():
     print(">>", end=" ")
     raw_input = int(input())
     if (raw_input == 1):
-        goblin = Goblin("Goblin",7,2)
+        goblin = Goblin("Goblin",7,2,5,None)
         chList.append(goblin)
     elif (raw_input == 2):
-        d_knight = Dark_Night("Dark Knight",9,2)
+        d_knight = Dark_Night("Dark Knight",9,2,6,None)
         chList.append(d_knight)
     elif (raw_input == 3):
-        zombie = Zombie("Zombie",999,1)
+        zombie = Zombie("Zombie",99999999,1,0,None)
         chList.append(zombie)
     else:
         print("Invalid selection {}".format(raw_input))
-
+#print character and enmey status
 def charactersStatus():
     chList[0].printStatus()
     chList[1].printStatus()
-    
+#start playing   
 def play():
     characterSelect()
     enemySelection()
@@ -73,12 +74,20 @@ def play():
         raw_input = int(input())
         #good attacks evil
         if (raw_input == 1):
-            #normal attac
+            #normal attacs
             chList[0].attack(chList[1])
             #random status if 20% is met
             chList[0].randomStatus(chList[1])
+            #enemy dies
             if (chList[1].health <= 0):
-                print(chList[1].name, "is ☠️")     
+                print(chList[1].name, "is ☠️") 
+                #enemy drops items
+                chList[0].dropItems(chList[1])
+                items.listItems()
+                #character purchase items
+                chList[0].buyItems()
+                for i in chList[0]:
+                    print(i)
         elif (raw_input == 2):
             pass
         elif (raw_input == 3):
@@ -89,6 +98,7 @@ def play():
         #evil attacks you
         if (chList[1].health > 0):
             chList[1].attack(chList[0])
+            #hero dies
             if (chList[0].health <= 0):
                 print(chList[0].name, "is ☠️")
 

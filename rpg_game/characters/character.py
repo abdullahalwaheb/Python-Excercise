@@ -1,12 +1,16 @@
 import random
+from store import items
 
 class Character:
-
     #constructor
-    def __init__(self, name, health, power):
+    def __init__(self, name, health, power, coins, inventory=None):
         self.name = name
         self.health = health
         self.power = power
+        self.coins = coins
+        if (inventory is None):
+            inventory=[]
+        self.inventory = inventory
 
     #status print method
     def printStatus(self):
@@ -41,6 +45,28 @@ class Character:
         else:
             pass
 
-            
+    #items/coins dropped after the battle won
+    def dropItems(self, enemy):
+        self.coins += enemy.coins
+        print(self.name,"earned {} coins".format(enemy.coins))
 
-
+    #buy items after battle from the store
+    def buyItems(self):
+        raw_input = int(input())
+        if (raw_input == 1 and self.coins >= itemsDict["Armor"]):
+            self.inventory.append("Armor")
+            self.coins -= itemsDict["Armor"]
+        elif (raw_input == 2 and self.coins >= itemsDict["SuperTonic"]):
+            self.inventory.append("SuperTonic")
+            self.coins -= itemsDict["SuperTonic"]
+        elif (raw_input == 3 and self.coins >= itemsDict["Shuriken"]):
+            self.inventory.append("Shuriken")
+            self.coins -= itemsDict["Shuriken"]
+        elif (raw_input == 4 and self.coins >= itemsDict["Evade"]):
+            self.inventory.append("Evade")
+            self.coins -= itemsDict["Evade"]
+        elif (raw_input == 5 and self.coins >= itemsDict["Sacrifice"]):
+            self.inventory.append("Sacrifice")
+            self.coins -= itemsDict["Sacrifice"]
+        else:
+            pass
