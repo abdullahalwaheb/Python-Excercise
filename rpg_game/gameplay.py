@@ -17,16 +17,16 @@ def characterSelect():
     print(">>", end=" ")
     raw_input = int(input())
     if (raw_input == 1):
-        hero = Hero("Hero",10,5,"Special")
+        hero = Hero("Hero",10,5)
         chList.append(hero)
     elif (raw_input == 2):
-        archer = Archer("Archer",8,4,"Special")
+        archer = Archer("Archer",8,4)
         chList.append(archer)
     elif (raw_input == 3):
-        medic = Medic("Medic",9,3,"Special")
+        medic = Medic("Medic",9,3)
         chList.append(medic)
     elif (raw_input == 4):
-        shadow = Shadow("Shadow", 15,7,"Special")
+        shadow = Shadow("Shadow",1,7)
         chList.append(shadow)
     elif (raw_input == 5):
         print("Goodbye!")
@@ -44,13 +44,13 @@ def enemySelection():
     print(">>", end=" ")
     raw_input = int(input())
     if (raw_input == 1):
-        goblin = Goblin("Goblin",7,2,"Special")
+        goblin = Goblin("Goblin",7,2)
         chList.append(goblin)
     elif (raw_input == 2):
-        d_knight = Dark_Night("Dark Knight",9,2,"Special")
+        d_knight = Dark_Night("Dark Knight",9,2)
         chList.append(d_knight)
     elif (raw_input == 3):
-        zombie = ("Zombie",999,1,"Special")
+        zombie = Zombie("Zombie",999,1)
         chList.append(zombie)
     else:
         print("Invalid selection {}".format(raw_input))
@@ -73,7 +73,10 @@ def play():
         raw_input = int(input())
         #good attacks evil
         if (raw_input == 1):
+            #normal attac
             chList[0].attack(chList[1])
+            #random status if 20% is met
+            chList[0].randomStatus(chList[1])
             if (chList[1].health <= 0):
                 print(chList[1].name, "is ☠️")     
         elif (raw_input == 2):
