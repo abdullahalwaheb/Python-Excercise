@@ -69,10 +69,12 @@ class Character:
                 self.inventory.append("Shuriken")
                 self.coins -= itemsDict["Shuriken"]
                 break
-            elif (raw_input == "4" and self.coins >= itemsDict["Evade"]):
+            elif (raw_input == "4" and self.coins >= itemsDict["Evade"] and self.inventory.count("Evade") < 4):
                 self.inventory.append("Evade")
                 self.coins -= itemsDict["Evade"]
                 break
+            elif (raw_input == "4" and self.coins >= itemsDict["Evade"] and self.inventory.count("Evade") == 4):
+                print ("Cannot carry more Evade, max is reached")
             elif (raw_input == "5" and self.coins >= itemsDict["Sacrifice"]):
                 self.inventory.append("Sacrifice")
                 self.coins -= itemsDict["Sacrifice"]
@@ -88,22 +90,27 @@ class Character:
             if (itemUsed == "Armor" or itemUsed == "armor"):
                 self.inventory.remove("Armor")
                 self.defence += 1
+                print("Used Armor and boosted defence")
                 break
             elif (itemUsed == "SuperTonic" or itemUsed == "supertonic"):
                 self.inventory.remove("SuperTonic")
                 self.health += 2
+                print("Used SuperTonic and restored 2 health points")
                 break
             elif (itemUsed == "Shuriken" or itemUsed == "shuriken"):
                 self.inventory.remove("Shuriken")
                 self.power += 5
+                print("Used Shuriken and boosted power")
                 break
             elif (itemUsed == "Evade" or itemUsed == "evade"):
                 self.inventory.remove("Evade")
                 self.health += enemy.power
+                print("Used Evade and dodged incoming hit!")
                 break
             elif (itemUsed == "Sacrifice" or itemUsed == "sacrificed"):
                 self.inventory.remove("Sacrifice")
                 self.health = 0
+                print("May your soul rest in peace Guardian")
                 break
             else:
                 print("{} is unavailable".format(itemUsed))

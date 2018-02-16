@@ -20,7 +20,7 @@ def characterSelect():
         print(">>", end=" ")
         raw_input = input()
         if (raw_input == "1"):
-            hero = Hero("Hero",10,5,0,0,None)
+            hero = Hero("Hero",100,5,0,0,None)
             chList.append(hero)
         elif (raw_input == "2"):
             archer = Archer("Archer",8,5,0,0,None)
